@@ -2,9 +2,12 @@ from setuptools import setup
 import re
 
 
+ROOT = pathlib.Path(__file__).parent
+
 EXTRA_REQUIRES = {}
 
-for feature in ('requirements').glob('*.txt'):
+
+for feature in (ROOT / 'requirements').glob('*.txt'):
     with open(feature, 'r', encoding='utf-8') as f:
         EXTRA_REQUIRES[feature.with_suffix('').name] = f.read().splitlines()
 
