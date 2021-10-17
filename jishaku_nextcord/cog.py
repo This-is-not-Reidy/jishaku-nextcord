@@ -23,7 +23,7 @@ from jishaku_nextcord.features.shell import ShellFeature
 from jishaku_nextcord.features.voice import VoiceFeature
 
 __all__ = (
-    "jishaku_nextcord",
+    "JishakuNextcord",
     "STANDARD_FEATURES",
     "OPTIONAL_FEATURES",
     "setup",
@@ -41,7 +41,7 @@ else:
     OPTIONAL_FEATURES.insert(0, YouTubeFeature)
 
 
-class jishaku_nextcord(*OPTIONAL_FEATURES, *STANDARD_FEATURES):  # pylint: disable=too-few-public-methods
+class JishakuNextcord(*OPTIONAL_FEATURES, *STANDARD_FEATURES):  # pylint: disable=too-few-public-methods
     """
     The frontend subclass that mixes in to form the final jishaku_nextcord cog.
     """
