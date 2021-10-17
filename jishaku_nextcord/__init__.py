@@ -18,7 +18,7 @@ from jishaku_nextcord.flags import Flags  # noqa: F401
 from jishaku_nextcord.meta import *  # noqa: F401
 
 __all__ = (
-    'Jishaku',
+    'jishaku_nextcord',
     'Feature',
     'Flags',
     'setup'

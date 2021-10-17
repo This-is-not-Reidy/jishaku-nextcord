@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-jishaku.codeblocks
+jishaku_nextcord.codeblocks
 ~~~~~~~~~~~~~~~~~~
 
 Converters for detecting and obtaining codeblock content

@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
 """
-jishaku.__main__
+jishaku_nextcord.__main__
 ~~~~~~~~~~~~~~~~~
 
-This is an entrypoint that sets up a basic Bot with Jishaku.
+This is an entrypoint that sets up a basic Bot with jishaku_nextcord.
 It has console logging set up and uses a mention prefix.
 
 This is mostly intended to be a quick means to have a debuggable bot from a token.
-It can be used to perform manual administrative actions as the bot, or to test Jishaku itself.
+It can be used to perform manual administrative actions as the bot, or to test jishaku_nextcord itself.
 
 :copyright: (c) 2021 Devon (Gorialis) R
 :license: MIT, see LICENSE for more details.
@@ -30,7 +30,7 @@ LOG_STREAM.setFormatter(LOG_FORMAT)
 @click.argument('token')
 def entrypoint(token: str):
     """
-    Entrypoint accessible through `python -m jishaku <TOKEN>`
+    Entrypoint accessible through `python -m jishaku_nextcord <TOKEN>`
     """
 
     logger = logging.getLogger()
@@ -38,7 +38,7 @@ def entrypoint(token: str):
     logger.addHandler(LOG_STREAM)
 
     bot = commands.Bot(commands.when_mentioned)
-    bot.load_extension('jishaku')
+    bot.load_extension('jishaku_nextcord')
     bot.run(token)
 
 
