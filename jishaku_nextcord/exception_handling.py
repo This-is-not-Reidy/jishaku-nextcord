@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-jishaku.exception_handling
+jishaku_nextcord.exception_handling
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Functions and classes for handling exceptions.
@@ -19,7 +19,7 @@ import typing
 import nextcord
 from nextcord.ext import commands
 
-from jishaku.flags import Flags
+from jishaku_nextcord.flags import Flags
 
 
 async def send_traceback(destination: nextcord.abc.Messageable, verbosity: int, *exc_info):

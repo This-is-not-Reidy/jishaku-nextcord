@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 """
-jishaku.paginators (shim for nextcord.py 2.0.0)
+jishaku_nextcord.paginators (shim for nextcord.py 2.0.0)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Paginator-related tools and interfaces for Jishaku.
+Paginator-related tools and interfaces for jishaku_nextcord.
 
 :copyright: (c) 2021 Devon (Gorialis) R
 :license: MIT, see LICENSE for more details.
@@ -17,7 +17,7 @@ import nextcord
 from nextcord import ui
 from nextcord.ext import commands
 
-from jishaku.shim.paginator_base import EMOJI_DEFAULT
+from jishaku_nextcord.shim.paginator_base import EMOJI_DEFAULT
 
 
 class PaginatorInterface(ui.View):  # pylint: disable=too-many-instance-attributes
@@ -32,7 +32,7 @@ class PaginatorInterface(ui.View):  # pylint: disable=too-many-instance-attribut
 
         from nextcord.ext import commands
 
-        from jishaku.paginators import PaginatorInterface
+        from jishaku_nextcord.paginators import PaginatorInterface
 
         # In a command somewhere...
             # Paginators need to have a reduced max_size to accommodate the extra text added by the interface.

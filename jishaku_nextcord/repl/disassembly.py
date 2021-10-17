@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-jishaku.repl.disassembly
+jishaku_nextcord.repl.disassembly
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 Functions pertaining to the disassembly of Python code
@@ -16,7 +16,7 @@ import dis
 
 import import_expression
 
-from jishaku.repl.scope import Scope
+from jishaku_nextcord.repl.scope import Scope
 
 CORO_CODE = f"""
 import asyncio
@@ -25,7 +25,7 @@ import discord
 from discord.ext import commands
 from importlib import import_module as {import_expression.constants.IMPORTER}
 
-import jishaku
+import jishaku_nextcord
 
 async def _repl_coroutine({{0}}):
     pass
@@ -36,7 +36,7 @@ def wrap_code(code: str, args: str = '') -> ast.Module:
     """
     Wraps code for disassembly.
 
-    This is similar in function to the jishaku.repl.compilation equivalent,
+    This is similar in function to the jishaku_nextcord.repl.compilation equivalent,
     but due to the different structure required for clean disassemblies,
     it's implemented separately here.
     """

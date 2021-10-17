@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 """
-jishaku.features.management
+jishaku_nextcord.features.management
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The jishaku extension and bot control commands.
+The jishaku_nextcord extension and bot control commands.
 
 :copyright: (c) 2021 Devon (Gorialis) R
 :license: MIT, see LICENSE for more details.
@@ -20,10 +20,10 @@ from urllib.parse import urlencode
 import nextcord
 from nextcord.ext import commands
 
-from jishaku.features.baseclass import Feature
-from jishaku.flags import Flags
-from jishaku.modules import ExtensionConverter
-from jishaku.paginators import WrappedPaginator
+from jishaku_nextcord.features.baseclass import Feature
+from jishaku_nextcord.flags import Flags
+from jishaku_nextcord.modules import ExtensionConverter
+from jishaku_nextcord.paginators import WrappedPaginator
 
 
 class ManagementFeature(Feature):
@@ -41,9 +41,9 @@ class ManagementFeature(Feature):
 
         paginator = WrappedPaginator(prefix='', suffix='')
 
-        # 'jsk reload' on its own just reloads jishaku
+        # 'jsk reload' on its own just reloads jishaku_nextcord
         if ctx.invoked_with == 'reload' and not extensions:
-            extensions = [['jishaku']]
+            extensions = [['jishaku_nextcord']]
 
         for extension in itertools.chain(*extensions):
             method, icon = (

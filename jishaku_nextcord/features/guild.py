@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 """
-jishaku.features.guild
+jishaku_nextcord.features.guild
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-The jishaku guild-related commands.
+The jishaku_nextcord guild-related commands.
 
 :copyright: (c) 2021 Devon (Gorialis) R
 :license: MIT, see LICENSE for more details.
@@ -16,7 +16,7 @@ import typing
 import nextcord
 from nextcord.ext import commands
 
-from jishaku.features.baseclass import Feature
+from jishaku_nextcord.features.baseclass import Feature
 
 
 class GuildFeature(Feature):

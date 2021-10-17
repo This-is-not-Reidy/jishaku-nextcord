@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-jishaku.repl.compilation
+jishaku_nextcord.repl.compilation
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 Constants, functions and classes related to classifying, compiling and executing Python code.
@@ -18,9 +18,9 @@ import linecache
 
 import import_expression
 
-from jishaku.functools import AsyncSender
-from jishaku.repl.scope import Scope
-from jishaku.repl.walkers import KeywordTransformer
+from jishaku_nextcord.functools import AsyncSender
+from jishaku_nextcord.repl.scope import Scope
+from jishaku_nextcord.repl.walkers import KeywordTransformer
 
 CORO_CODE = f"""
 async def _repl_coroutine({{0}}):
@@ -32,9 +32,9 @@ async def _repl_coroutine({{0}}):
     from discord.ext import commands
 
     try:
-        import jishaku
+        import jishaku_nextcord
     except ImportError:
-        jishaku = None  # keep working even if in panic recovery mode
+        jishaku_nextcord = None  # keep working even if in panic recovery mode
 
     try:
         pass

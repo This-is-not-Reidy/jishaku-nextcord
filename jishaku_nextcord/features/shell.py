@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 """
-jishaku.features.shell
+jishaku_nextcord.features.shell
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-The jishaku shell commands.
+The jishaku_nextcord shell commands.
 
 :copyright: (c) 2021 Devon (Gorialis) R
 :license: MIT, see LICENSE for more details.
@@ -13,11 +13,11 @@ The jishaku shell commands.
 
 from nextcord.ext import commands
 
-from jishaku.codeblocks import Codeblock, codeblock_converter
-from jishaku.exception_handling import ReplResponseReactor
-from jishaku.features.baseclass import Feature
-from jishaku.paginators import PaginatorInterface, WrappedPaginator
-from jishaku.shell import ShellReader
+from jishaku_nextcord.codeblocks import Codeblock, codeblock_converter
+from jishaku_nextcord.exception_handling import ReplResponseReactor
+from jishaku_nextcord.features.baseclass import Feature
+from jishaku_nextcord.paginators import PaginatorInterface, WrappedPaginator
+from jishaku_nextcord.shell import ShellReader
 
 
 class ShellFeature(Feature):

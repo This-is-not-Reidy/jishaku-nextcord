@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 """
-jishaku.features.root_command
+jishaku_nextcord.features.root_command
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The jishaku root command.
+The jishaku_nextcord root command.
 
 :copyright: (c) 2021 Devon (Gorialis) R
 :license: MIT, see LICENSE for more details.
@@ -18,10 +18,10 @@ import typing
 import nextcord
 from nextcord.ext import commands
 
-from jishaku.features.baseclass import Feature
-from jishaku.flags import Flags
-from jishaku.modules import package_version
-from jishaku.paginators import PaginatorInterface
+from jishaku_nextcord.features.baseclass import Feature
+from jishaku_nextcord.flags import Flags
+from jishaku_nextcord.modules import package_version
+from jishaku_nextcord.paginators import PaginatorInterface
 
 try:
     import psutil
@@ -52,18 +52,18 @@ class RootCommand(Feature):
         super().__init__(*args, **kwargs)
         self.jsk.hidden = Flags.HIDE
 
-    @Feature.Command(name="jishaku", aliases=["jsk"],
+    @Feature.Command(name="jishaku_nextcord", aliases=["jsk"],
                      invoke_without_command=True, ignore_extra=False)
     async def jsk(self, ctx: commands.Context):  # pylint: disable=too-many-branches
         """
-        The Jishaku debug and diagnostic commands.
+        The jishaku_nextcord debug and diagnostic commands.
 
         This command on its own gives a status brief.
         All other functionality is within its subcommands.
         """
 
         summary = [
-            f"Jishaku v{package_version('jishaku')}, nextcord.py `{package_version('nextcord.py')}`, "
+            f"jishaku_nextcord v{package_version('jishaku_nextcord')}, nextcord.py `{package_version('nextcord.py')}`, "
             f"`Python {sys.version}` on `{sys.platform}`".replace("\n", ""),
             f"Module was loaded <t:{self.load_time.timestamp():.0f}:R>, "
             f"cog was loaded <t:{self.start_time.timestamp():.0f}:R>.",
@@ -151,32 +151,32 @@ class RootCommand(Feature):
     @Feature.Command(parent="jsk", name="hide")
     async def jsk_hide(self, ctx: commands.Context):
         """
-        Hides Jishaku from the help command.
+        Hides jishaku_nextcord from the help command.
         """
 
         if self.jsk.hidden:
-            return await ctx.send("Jishaku is already hidden.")
+            return await ctx.send("jishaku_nextcord is already hidden.")
 
         self.jsk.hidden = True
-        await ctx.send("Jishaku is now hidden.")
+        await ctx.send("jishaku_nextcord is now hidden.")
 
     @Feature.Command(parent="jsk", name="show")
     async def jsk_show(self, ctx: commands.Context):
         """
-        Shows Jishaku in the help command.
+        Shows jishaku_nextcord in the help command.
         """
 
         if not self.jsk.hidden:
-            return await ctx.send("Jishaku is already visible.")
+            return await ctx.send("jishaku_nextcord is already visible.")
 
         self.jsk.hidden = False
-        await ctx.send("Jishaku is now visible.")
+        await ctx.send("jishaku_nextcord is now visible.")
     # pylint: enable=no-member
 
     @Feature.Command(parent="jsk", name="tasks")
     async def jsk_tasks(self, ctx: commands.Context):
         """
-        Shows the currently running jishaku tasks.
+        Shows the currently running jishaku_nextcord tasks.
         """
 
         if not self.tasks:

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 """
-jishaku.paginators
+jishaku_nextcord.paginators
 ~~~~~~~~~~~~~~~~~~
 
-Paginator-related tools and interfaces for Jishaku.
+Paginator-related tools and interfaces for jishaku_nextcord.
 
 :copyright: (c) 2021 Devon (Gorialis) R
 :license: MIT, see LICENSE for more details.
@@ -14,15 +14,15 @@ Paginator-related tools and interfaces for Jishaku.
 import nextcord
 from nextcord.ext import commands
 
-from jishaku.flags import Flags
-from jishaku.hljs import get_language, guess_file_traits
-from jishaku.shim.paginator_base import EmojiSettings
+from jishaku_nextcord.flags import Flags
+from jishaku_nextcord.hljs import get_language, guess_file_traits
+from jishaku_nextcord.shim.paginator_base import EmojiSettings
 
 # Version detection
 if nextcord.version_info >= (2, 0, 0):
-    from jishaku.shim.paginator_200 import PaginatorEmbedInterface, PaginatorInterface
+    from jishaku_nextcord.shim.paginator_200 import PaginatorEmbedInterface, PaginatorInterface
 else:
-    from jishaku.shim.paginator_170 import PaginatorEmbedInterface, PaginatorInterface
+    from jishaku_nextcord.shim.paginator_170 import PaginatorEmbedInterface, PaginatorInterface
 
 __all__ = ('EmojiSettings', 'PaginatorInterface', 'PaginatorEmbedInterface',
            'WrappedPaginator', 'FilePaginator', 'use_file_check')

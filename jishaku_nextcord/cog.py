@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 """
-jishaku.cog
+jishaku_nextcord.cog
 ~~~~~~~~~~~~
 
-The Jishaku debugging and diagnostics cog implementation.
+The jishaku_nextcord debugging and diagnostics cog implementation.
 
 :copyright: (c) 2021 Devon (Gorialis) R
 :license: MIT, see LICENSE for more details.
@@ -13,17 +13,17 @@ The Jishaku debugging and diagnostics cog implementation.
 
 from nextcord.ext import commands
 
-from jishaku.features.filesystem import FilesystemFeature
-from jishaku.features.guild import GuildFeature
-from jishaku.features.invocation import InvocationFeature
-from jishaku.features.management import ManagementFeature
-from jishaku.features.python import PythonFeature
-from jishaku.features.root_command import RootCommand
-from jishaku.features.shell import ShellFeature
-from jishaku.features.voice import VoiceFeature
+from jishaku_nextcord.features.filesystem import FilesystemFeature
+from jishaku_nextcord.features.guild import GuildFeature
+from jishaku_nextcord.features.invocation import InvocationFeature
+from jishaku_nextcord.features.management import ManagementFeature
+from jishaku_nextcord.features.python import PythonFeature
+from jishaku_nextcord.features.root_command import RootCommand
+from jishaku_nextcord.features.shell import ShellFeature
+from jishaku_nextcord.features.voice import VoiceFeature
 
 __all__ = (
-    "Jishaku",
+    "jishaku_nextcord",
     "STANDARD_FEATURES",
     "OPTIONAL_FEATURES",
     "setup",
@@ -34,22 +34,22 @@ STANDARD_FEATURES = (VoiceFeature, GuildFeature, FilesystemFeature, InvocationFe
 OPTIONAL_FEATURES = []
 
 try:
-    from jishaku.features.youtube import YouTubeFeature
+    from jishaku_nextcord.features.youtube import YouTubeFeature
 except ImportError:
     pass
 else:
     OPTIONAL_FEATURES.insert(0, YouTubeFeature)
 
 
-class Jishaku(*OPTIONAL_FEATURES, *STANDARD_FEATURES):  # pylint: disable=too-few-public-methods
+class jishaku_nextcord(*OPTIONAL_FEATURES, *STANDARD_FEATURES):  # pylint: disable=too-few-public-methods
     """
-    The frontend subclass that mixes in to form the final Jishaku cog.
+    The frontend subclass that mixes in to form the final jishaku_nextcord cog.
     """
 
 
 def setup(bot: commands.Bot):
     """
-    The setup function defining the jishaku.cog and jishaku extensions.
+    The setup function defining the jishaku_nextcord.cog and jishaku_nextcord extensions.
     """
 
-    bot.add_cog(Jishaku(bot=bot))
+    bot.add_cog(jishaku_nextcord(bot=bot))

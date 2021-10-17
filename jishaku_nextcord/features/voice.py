@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 """
-jishaku.features.voice
+jishaku_nextcord.features.voice
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-The jishaku core voice-related commands.
+The jishaku_nextcord core voice-related commands.
 
 :copyright: (c) 2021 Devon (Gorialis) R
 :license: MIT, see LICENSE for more details.
@@ -18,7 +18,7 @@ import nextcord.opus
 import nextcord.voice_client
 from nextcord.ext import commands
 
-from jishaku.features.baseclass import Feature
+from jishaku_nextcord.features.baseclass import Feature
 
 
 class VoiceFeature(Feature):

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 """
-jishaku.features.invocation
+jishaku_nextcord.features.invocation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The jishaku command invocation related commands.
+The jishaku_nextcord command invocation related commands.
 
 :copyright: (c) 2021 Devon (Gorialis) R
 :license: MIT, see LICENSE for more details.
@@ -22,10 +22,10 @@ import typing
 import nextcord
 from nextcord.ext import commands
 
-from jishaku.exception_handling import ReplResponseReactor
-from jishaku.features.baseclass import Feature
-from jishaku.models import copy_context_with
-from jishaku.paginators import PaginatorInterface, WrappedPaginator, use_file_check
+from jishaku_nextcord.exception_handling import ReplResponseReactor
+from jishaku_nextcord.features.baseclass import Feature
+from jishaku_nextcord.models import copy_context_with
+from jishaku_nextcord.paginators import PaginatorInterface, WrappedPaginator, use_file_check
 
 UserIDConverter = commands.IDConverter[nextcord.User] if nextcord.version_info >= (2, 0) else commands.IDConverter
 

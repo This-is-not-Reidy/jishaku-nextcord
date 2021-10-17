@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 """
-jishaku.features.python
+jishaku_nextcord.features.python
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-The jishaku Python evaluation/execution commands.
+The jishaku_nextcord Python evaluation/execution commands.
 
 :copyright: (c) 2021 Devon (Gorialis) R
 :license: MIT, see LICENSE for more details.
@@ -16,13 +16,13 @@ import io
 import nextcord
 from nextcord.ext import commands
 
-from jishaku.codeblocks import codeblock_converter
-from jishaku.exception_handling import ReplResponseReactor
-from jishaku.features.baseclass import Feature
-from jishaku.flags import Flags
-from jishaku.functools import AsyncSender
-from jishaku.paginators import PaginatorInterface, WrappedPaginator, use_file_check
-from jishaku.repl import AsyncCodeExecutor, Scope, all_inspections, disassemble, get_var_dict_from_ctx
+from jishaku_nextcord.codeblocks import codeblock_converter
+from jishaku_nextcord.exception_handling import ReplResponseReactor
+from jishaku_nextcord.features.baseclass import Feature
+from jishaku_nextcord.flags import Flags
+from jishaku_nextcord.functools import AsyncSender
+from jishaku_nextcord.paginators import PaginatorInterface, WrappedPaginator, use_file_check
+from jishaku_nextcord.repl import AsyncCodeExecutor, Scope, all_inspections, disassemble, get_var_dict_from_ctx
 
 
 class PythonFeature(Feature):

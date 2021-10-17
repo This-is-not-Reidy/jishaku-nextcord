@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 """
-jishaku.features.filesystem
+jishaku_nextcord.features.filesystem
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The jishaku filesystem-related commands.
+The jishaku_nextcord filesystem-related commands.
 
 :copyright: (c) 2021 Devon (Gorialis) R
 :license: MIT, see LICENSE for more details.
@@ -20,10 +20,10 @@ import aiohttp
 import nextcord
 from nextcord.ext import commands
 
-from jishaku.exception_handling import ReplResponseReactor
-from jishaku.features.baseclass import Feature
-from jishaku.hljs import get_language, guess_file_traits
-from jishaku.paginators import PaginatorInterface, WrappedFilePaginator, use_file_check
+from jishaku_nextcord.exception_handling import ReplResponseReactor
+from jishaku_nextcord.features.baseclass import Feature
+from jishaku_nextcord.hljs import get_language, guess_file_traits
+from jishaku_nextcord.paginators import PaginatorInterface, WrappedFilePaginator, use_file_check
 
 
 class FilesystemFeature(Feature):

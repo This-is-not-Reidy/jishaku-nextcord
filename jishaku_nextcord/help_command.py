@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 """
-jishaku.help_command
+jishaku_nextcord.help_command
 ~~~~~~~~~~~~~~~~~~~~
 
-HelpCommand subclasses with jishaku features
+HelpCommand subclasses with jishaku_nextcord features
 
 :copyright: (c) 2021 Devon (Gorialis) R
 :license: MIT, see LICENSE for more details.
@@ -13,7 +13,7 @@ HelpCommand subclasses with jishaku features
 
 from nextcord.ext import commands
 
-from jishaku.paginators import PaginatorEmbedInterface, PaginatorInterface
+from jishaku_nextcord.paginators import PaginatorEmbedInterface, PaginatorInterface
 
 
 class DefaultPaginatorHelp(commands.DefaultHelpCommand):

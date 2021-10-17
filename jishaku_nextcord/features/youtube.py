@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 """
-jishaku.features.youtube
+jishaku_nextcord.features.youtube
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The jishaku youtube-dl command.
+The jishaku_nextcord youtube-dl command.
 
 :copyright: (c) 2021 Devon (Gorialis) R
 :license: MIT, see LICENSE for more details.
@@ -15,8 +15,8 @@ import nextcord
 import youtube_dl
 from nextcord.ext import commands
 
-from jishaku.features.baseclass import Feature
-from jishaku.features.voice import VoiceFeature
+from jishaku_nextcord.features.baseclass import Feature
+from jishaku_nextcord.features.voice import VoiceFeature
 
 BASIC_OPTS = {
     'format': 'webm[abr>0]/bestaudio/best',
