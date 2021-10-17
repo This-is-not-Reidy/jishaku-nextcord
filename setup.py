@@ -1,9 +1,14 @@
 from setuptools import setup
 import re
 
-requirements = []
-with open('requirements.txt') as f:
-  requirements = f.read().splitlines()
+
+EXTRA_REQUIRES = {}
+
+for feature in ('requirements').glob('*.txt'):
+    with open(feature, 'r', encoding='utf-8') as f:
+        EXTRA_REQUIRES[feature.with_suffix('').name] = f.read().splitlines()
+
+REQUIREMENTS = EXTRA_REQUIRES.pop('_')
 
 version = ''
 with open('jishaku_nextcord/meta.py') as f:
@@ -28,5 +33,6 @@ setup(name='jishaku_nextcord',
       long_description=readme,
       long_description_content_type='text/markdown',
       include_package_data=True,
-      install_requires=requirements,
+      install_requires=REQUIREMENTS,
+      extras_require=EXTRA_REQUIRES
       )
