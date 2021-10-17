@@ -1,5 +1,9 @@
-from setuptools import setup
+import os
+import pathlib
 import re
+import subprocess
+
+from setuptools import setup
 
 
 ROOT = pathlib.Path(__file__).parent
