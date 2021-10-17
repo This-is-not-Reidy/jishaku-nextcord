@@ -1,67 +1,32 @@
-import os
-import pathlib
-import re
-import subprocess
-
 from setuptools import setup
+import re
 
-ROOT = pathlib.Path(__file__).parent
+requirements = []
+with open('requirements.txt') as f:
+  requirements = f.read().splitlines()
 
-with open(ROOT / 'jishaku' / 'meta.py', 'r', encoding='utf-8') as f:
-    VERSION_MATCH = re.search(r'VersionInfo\(major=(\d+), minor=(\d+), micro=(\d+), .+\)', f.read(), re.MULTILINE)
+version = ''
+with open('jishaku_nextcord/meta.py') as f:
+    version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', f.read(), re.MULTILINE).group(1)
 
-    if not VERSION_MATCH:
-        raise RuntimeError('version is not set or could not be located')
-
-    VERSION = '.'.join([VERSION_MATCH.group(1), VERSION_MATCH.group(2), VERSION_MATCH.group(3)])
-
-EXTRA_REQUIRES = {}
-
-for feature in (ROOT / 'requirements').glob('*.txt'):
-    with open(feature, 'r', encoding='utf-8') as f:
-        EXTRA_REQUIRES[feature.with_suffix('').name] = f.read().splitlines()
-
-REQUIREMENTS = EXTRA_REQUIRES.pop('_')
-
-if not VERSION:
+if not version:
     raise RuntimeError('version is not set')
 
+readme = ''
+with open('README.md') as f:
+    readme = f.read()
 
-try:
-    PROCESS = subprocess.Popen(
-        ['git', 'rev-list', '--count', 'HEAD'],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE
-    )
-
-    COMMIT_COUNT, ERR = PROCESS.communicate()
-
-    if COMMIT_COUNT:
-        PROCESS = subprocess.Popen(
-            ['git', 'rev-parse', '--short', 'HEAD'],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE
-        )
-
-        COMMIT_HASH, ERR = PROCESS.communicate()
-
-        if COMMIT_HASH:
-            match = re.match(r'(\d).(\d).(\d)(a|b|rc)?', os.getenv('tag_name') or "")
-
-            if (match and match[4]) or not match:
-                VERSION += ('' if match else 'a') + COMMIT_COUNT.decode('utf-8').strip() + '+g' + COMMIT_HASH.decode('utf-8').strip()
-
-                # Also attempt to retrieve a branch, when applicable
-                PROCESS = subprocess.Popen(
-                    ['git', 'symbolic-ref', '-q', '--short', 'HEAD'],
-                    stdout=subprocess.PIPE,
-                    stderr=subprocess.PIPE
-                )
-
-                COMMIT_BRANCH, ERR = PROCESS.communicate()
-
-                if COMMIT_BRANCH:
-                    VERSION += "." + re.sub('[^a-zA-Z0-9.]', '.', COMMIT_BRANCH.decode('utf-8').strip())
-
-except FileNotFoundError:
-    pass
+setup(name='jishaku_nextcord',
+      author='This is not Reidy',
+      url='https://github.com/This-is-not-Reidy/jishaku-nextcord.git',
+      project_urls={
+        "Author Discord": "https://discord.com/users/848593011038224405",
+      },
+      version=version,
+      packages=['jishaku_nextcord'],
+      description='This is a fork of jishaku for nextcord',
+      long_description=readme,
+      long_description_content_type='text/markdown',
+      include_package_data=True,
+      install_requires=requirements,
+      )
