@@ -29,7 +29,7 @@ async def _repl_coroutine({{0}}):
 
     import aiohttp
     import nextcord
-    from discord.ext import commands
+    from nextcord.ext import commands
 
     try:
         import jishaku_nextcord
