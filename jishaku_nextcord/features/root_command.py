@@ -18,6 +18,7 @@ import typing
 import nextcord
 from nextcord.ext import commands
 
+import jishaku_nextcord
 from jishaku_nextcord.features.baseclass import Feature
 from jishaku_nextcord.flags import Flags
 from jishaku_nextcord.modules import package_version
