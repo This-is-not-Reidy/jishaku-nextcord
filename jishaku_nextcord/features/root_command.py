@@ -64,10 +64,9 @@ class RootCommand(Feature):
         """
 
         summary = [
-            f"jishaku_nextcord `{jishaku_nextcord.__version__}`, nextcord `{nextcord.__version__}`, "
-            f"`Python {sys.version}` on `{sys.platform}`".replace("\n", ""),
-            f"Модуль загружен: <t:{self.load_time.timestamp():.0f}:R>, "
-            f"Ког загружен: <t:{self.start_time.timestamp():.0f}:R>.",
+            f"jishaku_nextcord **{jishaku_nextcord.__version__}**, nextcord **{nextcord.__version__}**, "
+            f"Python **{sys.version}** on **{sys.platform}**".replace("\n", ""),
+            f"Модуль загружен: <t:{self.start_time.timestamp():.0f}:R>.",
             ""
         ]
 
