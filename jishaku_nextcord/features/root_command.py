@@ -131,9 +131,9 @@ class RootCommand(Feature):
             message_cache = "Message cache is disabled"
 
         if nextcord.version_info >= (1, 5, 0):
-            presence_intent = f"presence intent is {'enabled' if self.bot.intents.presences else 'disabled'}"
-            members_intent = f"members intent is {'enabled' if self.bot.intents.members else 'disabled'}"
-            message_intent = f"messages intent is {'enabled' if self.bot.intents.messages else 'disabled'}"
+            presence_intent = f"**presence** intent is {'**enabled**' if self.bot.intents.presences else '**disabled**'}"
+            members_intent = f"**members** intent is {'**enabled**' if self.bot.intents.members else '**disabled**'}"
+            message_intent = f"**messages** intent is {'**enabled**' if self.bot.intents.messages else '**disabled**'}"
 
             summary.append(f"{message_cache}, {presence_intent} and {members_intent}, and {message_intent}.")
         else:
