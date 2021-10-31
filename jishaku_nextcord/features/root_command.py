@@ -71,64 +71,8 @@ class RootCommand(Feature):
         ]
 
         # detect if [procinfo] feature is installed
-        if psutil:
-            try:
-                proc = psutil.Process()
 
-                with proc.oneshot():
-                    try:
-                        mem = proc.memory_full_info()
-                        summary.append(f"Using {natural_size(mem.rss)} physical memory and "
-                                       f"{natural_size(mem.vms)} virtual memory, "
-                                       f"{natural_size(mem.uss)} of which unique to this process.")
-                    except psutil.AccessDenied:
-                        pass
-
-                    try:
-                        name = proc.name()
-                        pid = proc.pid
-                        thread_count = proc.num_threads()
-
-                        summary.append(f"Running on PID {pid} (`{name}`) with {thread_count} thread(s).")
-                    except psutil.AccessDenied:
-                        pass
-
-                    summary.append("")  # blank line
-            except psutil.AccessDenied:
-                summary.append(
-                    "psutil is installed, but this process does not have high enough access rights "
-                    "to query process information."
-                )
-                summary.append("")  # blank line
-
-        cache_summary = f"{len(self.bot.guilds)} guild(s) and {len(self.bot.users)} user(s)"
-
-        # Show shard settings to summary
-        if isinstance(self.bot, nextcord.AutoShardedClient):
-            if len(self.bot.shards) > 20:
-                summary.append(
-                    f"This bot is automatically sharded ({len(self.bot.shards)} shards of {self.bot.shard_count})"
-                    f" and can see {cache_summary}."
-                )
-            else:
-                shard_ids = ', '.join(str(i) for i in self.bot.shards.keys())
-                summary.append(
-                    f"This bot is automatically sharded (Shards {shard_ids} of {self.bot.shard_count})"
-                    f" and can see {cache_summary}."
-                )
-        elif self.bot.shard_count:
-            summary.append(
-                f"This bot is manually sharded (Shard {self.bot.shard_id} of {self.bot.shard_count})"
-                f" and can see {cache_summary}."
-            )
-        else:
-            summary.append(f"This bot is not sharded and can see {cache_summary}.")
-
-        # pylint: disable=protected-access
-        if self.bot._connection.max_messages:
-            message_cache = f"Message cache capped at {self.bot._connection.max_messages}"
-        else:
-            message_cache = "Message cache is disabled"
+        cache_summary = f"Stats: **{len(self.bot.guilds)} guild(s) and {len(self.bot.users)} user(s).**"
 
         if nextcord.version_info >= (1, 5, 0):
             presence_intent = f"**presence** intent is {'**enabled**' if self.bot.intents.presences else '**disabled**'}"
@@ -144,7 +88,7 @@ class RootCommand(Feature):
         # pylint: enable=protected-access
 
         # Show websocket latency in milliseconds
-        summary.append(f"Average websocket latency: {round(self.bot.latency * 1000, 2)}ms")
+        summary.append(f"Ping: **{round(self.bot.latency * 1000, 2)} ms**")
 
         await ctx.send("\n".join(summary))
 
