@@ -79,11 +79,11 @@ class RootCommand(Feature):
             members_intent = f"**members** intent is {'**enabled**' if self.bot.intents.members else '**disabled**'}"
             message_intent = f"**messages** intent is {'**enabled**' if self.bot.intents.messages else '**disabled**'}"
 
-            summary.append(f"{message_cache}, {presence_intent} and {members_intent}, and {message_intent}.")
+            summary.append(f"{cache_summary}, {presence_intent} and {members_intent}, and {message_intent}.")
         else:
             guild_subscriptions = f"guild subscriptions are {'enabled' if self.bot._connection.guild_subscriptions else 'disabled'}"
 
-            summary.append(f"{message_cache} and {guild_subscriptions}.")
+            summary.append(f"{cache_summary} and {guild_subscriptions}.")
 
         # pylint: enable=protected-access
 
